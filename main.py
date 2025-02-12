@@ -19,7 +19,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 # Load model
 os.system(f'wget -O {MODEL_PATH} "https://civitai.com/api/download/models/397050?type=Model&format=SafeTensor&size=pruned&fp=fp32"')
 
-pipe = StableDiffusionXLPipeline.from_single_file(MODEL_PATH, use_safetensors=True, torch_dtype=torch.float16).to(device)
+pipe = StableDiffusionXLPipeline.from_single_file(MODEL_PATH, use_safetensors=True, torch_dtype=torch.float32).to(device)
 pipe.scheduler = EulerDiscreteScheduler.from_config(pipe.scheduler.config)
 print("\033[1;32mDone!\033[0m")
 
