@@ -17,7 +17,7 @@ os.makedirs(SAVE_DIR, exist_ok=True)
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Load model
-os.system(f'wget -O {MODEL_PATH} "https://civitai.com/api/download/models/128078?type=Model&format=SafeTensor&size=pruned&fp=fp16"')
+os.system(f'wget -O {MODEL_PATH} "https://civitai.com/api/download/models/397050?type=Model&format=SafeTensor&size=pruned&fp=fp32"')
 
 pipe = StableDiffusionXLPipeline.from_single_file(MODEL_PATH, use_safetensors=True, torch_dtype=torch.float16).to(device)
 pipe.scheduler = EulerDiscreteScheduler.from_config(pipe.scheduler.config)
@@ -62,17 +62,10 @@ examples = [
     "a cat in the cowboy hat",
 ]
 
-with gr.Blocks(css=css, theme='ParityError/Interstellar') as app:
+with gr.Blocks(css=css, theme='John6666/YntecDark') as app:
     with gr.Column(elem_id="col-container"):
         gr.Markdown(f"""
-    # Stable Diffusion <a href="https://www.patreon.com/marat_ai">by marat_ai</a> 
-    <a href="https://www.youtube.com/@marat_ai">
-        <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube" style="display: inline;"/>
-    </a>
-    <a href="https://www.patreon.com/marat_ai">
-        <img src="https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white" alt="Patreon" style="display: inline;"/>
-    </a>
-
+    # Stable Diffusion
     Google Colab's free tier offers about 4 hours of GPU usage per day. No authorization, no data storing or tracking. Your session data will be deleted when this session closes.
 """)
 
