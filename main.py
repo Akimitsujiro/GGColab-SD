@@ -14,7 +14,7 @@ MODEL_PATH = '/content/drive/My Drive/GGColab-SD/model_link.safetensors'
 
 # Setup
 os.makedirs(SAVE_DIR, exist_ok=True)
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "cuda" if torch.cuda.is_available() else "gpu"
 
 # Load model
 os.system(f'wget -O {MODEL_PATH} "https://civitai.com/api/download/models/397050?type=Model&format=SafeTensor&size=pruned&fp=fp32"')
