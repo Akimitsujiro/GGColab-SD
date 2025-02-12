@@ -9,8 +9,8 @@ from diffusers import StableDiffusionXLPipeline, EulerDiscreteScheduler
 # Constants
 MAX_SEED = np.iinfo(np.int32).max
 MAX_IMAGE_SIZE = 1344
-SAVE_DIR = "/content/images"
-MODEL_PATH = '/content/GGColab-SD/model_link.safetensors'
+SAVE_DIR = "/content/drive/My Drive/GGColab-SD/images"
+MODEL_PATH = '/content/drive/My Drive/GGColab-SD/model_link.safetensors'
 
 # Setup
 os.makedirs(SAVE_DIR, exist_ok=True)
